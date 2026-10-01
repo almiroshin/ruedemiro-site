@@ -1,3 +1,6 @@
+# Деплой сайта на хостинг RU-CENTER (nic.ru) при каждом push в main.
+# Бэкап на сервере → rsync файлов → проверка md5 прямо с IP хостинга.
+# Секреты и порядок обновления описаны в README.md.
 name: Deploy to nic.ru
 
 on:
@@ -58,6 +61,7 @@ jobs:
           echo "backup: $b"
           SH
 
+      # Служебные файлы репозитория на хостинг не нужны.
       # .htaccess и .well-known (проверка Let's Encrypt) на сервере ведутся вручную — не трогаем их
       - name: Upload
         env:
@@ -65,7 +69,7 @@ jobs:
         run: |
           rsync -rlvz --checksum --delete --chmod=D755,F644 \
             --exclude '.git/' --exclude '.github/' --exclude '.gitignore' \
-            --exclude '.nojekyll' --exclude '.htaccess' --exclude '.well-known/' \
+            --exclude '.nojekyll' --exclude 'README.md' --exclude '.htaccess' --exclude '.well-known/' \
             ./ nicru:"${REMOTE_PATH}/"
 
       - name: Check site
