@@ -1,0 +1,91 @@
+name: Deploy to nic.ru
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    env:
+      SITE_HOST: ruedemiro.com
+      # IP веб-сервера хостинга nic.ru: проверяем именно его, даже пока DNS домена смотрит в другое место
+      HOSTING_IP: 91.189.114.4
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          cp .github/known_hosts ~/.ssh/known_hosts
+          # Сервер nic.ru поддерживает только устаревший ключ хоста ssh-rsa
+          cat > ~/.ssh/config <<CFG
+          Host nicru
+            HostName ${SFTP_HOST}
+            User ${SFTP_USER}
+            IdentityFile ~/.ssh/deploy_key
+            IdentitiesOnly yes
+            HostKeyAlgorithms +ssh-rsa
+            StrictHostKeyChecking yes
+            ConnectTimeout 30
+          CFG
+
+      - name: Backup
+        env:
+          REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
+        run: |
+          ssh nicru bash -s -- "$REMOTE_PATH" "${GITHUB_SHA::7}" <<'SH'
+          set -e
+          if [ ! -d "$1" ]; then
+            echo "::error::Папки ~/$1 нет: добавьте сайт ruedemiro.com в панели хостинга nic.ru"; exit 1
+          fi
+          b=~/backups/ruedemiro-$(date +%Y-%m-%d_%H%M%S)-$2
+          mkdir -p "$b"
+          cp -a "$1"/. "$b"/
+          # храним только 5 последних бэкапов (сайт весит ~13 МБ)
+          ls -1d ~/backups/ruedemiro-* | sort | head -n -5 | xargs -r rm -rf
+          echo "backup: $b"
+          SH
+
+      # .htaccess на сервере ведётся вручную (редиректы, HTTPS) — не трогаем его
+      - name: Upload
+        env:
+          REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
+        run: |
+          rsync -rlvz --checksum --delete --chmod=D755,F644 \
+            --exclude '.git/' --exclude '.github/' --exclude '.gitignore' \
+            --exclude '.nojekyll' --exclude '.htaccess' \
+            ./ nicru:"${REMOTE_PATH}/"
+
+      - name: Check site
+        run: |
+          ip=$HOSTING_IP
+          # до выпуска SSL-сертификата хостинг отвечает только по http
+          scheme=https; port=443
+          if ! curl -sk -m 15 --resolve "${SITE_HOST}:443:${ip}" -o /dev/null "https://${SITE_HOST}/"; then scheme=http; port=80; fi
+          echo "checking over $scheme"
+          fail=0
+          for f in index.html "Главная.dc.html" Assortment.dc.html Product.dc.html support.js rdm-data.js; do
+            url="${scheme}://${SITE_HOST}/$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1]))' "$f")"
+            expected=$(md5sum < "$f" | cut -d' ' -f1)
+            code=$(curl -sk --resolve "${SITE_HOST}:${port}:${ip}" -o got -w '%{http_code}' "$url?deploy=${GITHUB_SHA::7}")
+            actual=$(md5sum < got | cut -d' ' -f1)
+            echo "$code $f"
+            if [ "$code" != 200 ] || [ "$actual" != "$expected" ]; then echo "::error::$f: HTTP $code, md5 mismatch?"; fail=1; fi
+          done
+          exit $fail
+
+      - name: Clean up
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
