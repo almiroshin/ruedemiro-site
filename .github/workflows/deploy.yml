@@ -58,14 +58,14 @@ jobs:
           echo "backup: $b"
           SH
 
-      # .htaccess на сервере ведётся вручную (редиректы, HTTPS) — не трогаем его
+      # .htaccess и .well-known (проверка Let's Encrypt) на сервере ведутся вручную — не трогаем их
       - name: Upload
         env:
           REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
         run: |
           rsync -rlvz --checksum --delete --chmod=D755,F644 \
             --exclude '.git/' --exclude '.github/' --exclude '.gitignore' \
-            --exclude '.nojekyll' --exclude '.htaccess' \
+            --exclude '.nojekyll' --exclude '.htaccess' --exclude '.well-known/' \
             ./ nicru:"${REMOTE_PATH}/"
 
       - name: Check site
