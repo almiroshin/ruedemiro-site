@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Пресса — RUE DE MIRÓ</title>
+<link rel="stylesheet" href="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/tokens/colors.css">
+<link rel="stylesheet" href="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/tokens/typography.css">
+<link rel="stylesheet" href="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/tokens/base.css">
+<link rel="stylesheet" href="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/styles.css">
+<script src="_ds/rue-de-mir-design-system-50ab6499-c716-4f62-b2c5-26d8ca2597dc/_ds_bundle.js"></script>
+<script src="rdm-data.js"></script>
+<script src="image-slot.js"></script>
+<style>body{margin:0;background:#fff;color:var(--text-primary);font-family:var(--font-sans)}*{box-sizing:border-box}a{color:var(--link)}a:hover{color:var(--link-hover)}button{font:inherit}</style>
+</helmet>
+<div data-screen-label="Пресса" style="min-height:100vh;background:var(--surface-page)">
+<x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.SiteHeader" items="{{ navItems }}" active="Пресса" on-navigate="{{ nav }}" base="" style="position:sticky;top:0;z-index:20" hint-size="100%,79px"></x-import>
+
+<section style="padding:96px 40px 72px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:64px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Eyebrow" tone="muted" hint-size="120px,17px">Пресса</x-import>
+      <h1 style="margin:0;font:400 52px/1.08 var(--font-display);letter-spacing:0.04em;text-transform:uppercase">RUE DE MIRÓ в медиа</h1>
+      <div style="font:italic 400 24px/1.35 var(--font-editorial)">Публикации, пресс-кит и контакты для редакций</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p style="margin:0;font:300 16px/1.65 var(--font-sans);color:var(--text-secondary)">Для материалов о бренде, съёмок и интервью с основательницей напишите нам — мы пришлём пресс-кит и ответим на вопросы.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Button" href="mailto:salut@ruedemiro.com?subject=Пресс-кит RUE DE MIRÓ" hint-size="220px,44px">Запросить пресс-кит</x-import>
+        <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Button" variant="outline" href="#facts" hint-size="180px,44px">Факты о бренде</x-import>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 40px 96px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rdm-ink);padding-top:18px;margin-bottom:32px">
+      <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Eyebrow" hint-size="160px,17px">Публикации</x-import>
+      <span style="font:400 13px/1 var(--font-sans);color:var(--text-muted)">Нажмите на обложку, чтобы заменить изображение</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
+      <article style="display:flex;flex-direction:column;gap:14px">
+        <div style="aspect-ratio:4/5;position:relative;background:var(--surface-soft)"><image-slot id="press-1" shape="rect" placeholder="Обложка или скриншот публикации"></image-slot></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;font:500 11px/1.4 var(--font-sans);letter-spacing:0.18em;text-transform:uppercase"><span>Название издания</span><span style="color:var(--text-muted)">Месяц, год</span></div>
+        <div style="font:italic 400 22px/1.3 var(--font-editorial)">Заголовок или цитата из публикации</div>
+        <div style="width:60%;border-top:1px solid var(--rdm-ink)"></div>
+        <a href="#" style="font:500 11px/1.2 var(--font-sans);letter-spacing:0.16em;text-transform:uppercase;align-self:flex-start;border-bottom:1px solid currentColor;padding-bottom:3px">Читать →</a>
+      </article>
+      <article style="display:flex;flex-direction:column;gap:14px">
+        <div style="aspect-ratio:4/5;position:relative;background:var(--surface-soft)"><image-slot id="press-2" shape="rect" placeholder="Обложка или скриншот публикации"></image-slot></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;font:500 11px/1.4 var(--font-sans);letter-spacing:0.18em;text-transform:uppercase"><span>Название издания</span><span style="color:var(--text-muted)">Месяц, год</span></div>
+        <div style="font:italic 400 22px/1.3 var(--font-editorial)">Заголовок или цитата из публикации</div>
+        <div style="width:60%;border-top:1px solid var(--rdm-ink)"></div>
+        <a href="#" style="font:500 11px/1.2 var(--font-sans);letter-spacing:0.16em;text-transform:uppercase;align-self:flex-start;border-bottom:1px solid currentColor;padding-bottom:3px">Читать →</a>
+      </article>
+      <article style="display:flex;flex-direction:column;gap:14px">
+        <div style="aspect-ratio:4/5;position:relative;background:var(--surface-soft)"><image-slot id="press-3" shape="rect" placeholder="Обложка или скриншот публикации"></image-slot></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;font:500 11px/1.4 var(--font-sans);letter-spacing:0.18em;text-transform:uppercase"><span>Название издания</span><span style="color:var(--text-muted)">Месяц, год</span></div>
+        <div style="font:italic 400 22px/1.3 var(--font-editorial)">Заголовок или цитата из публикации</div>
+        <div style="width:60%;border-top:1px solid var(--rdm-ink)"></div>
+        <a href="#" style="font:500 11px/1.2 var(--font-sans);letter-spacing:0.16em;text-transform:uppercase;align-self:flex-start;border-bottom:1px solid currentColor;padding-bottom:3px">Читать →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="facts" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--surface-soft)">
+  <div style="padding:96px 64px;display:flex;flex-direction:column;gap:18px">
+    <div style="font:italic 400 30px/1.3 var(--font-editorial)">Факты о бренде</div>
+    <div style="width:120px;border-top:1px solid var(--rdm-ink)"></div>
+    <div style="border-top:1px solid var(--rdm-stone);margin-top:8px">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="7">
+        <div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:24px;padding:16px 0;border-bottom:1px solid var(--rdm-stone)">
+          <span style="font:500 11px/1.5 var(--font-sans);letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">{{ f.k }}</span>
+          <span style="font:400 15px/1.5 var(--font-sans)">{{ f.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="background:var(--rdm-linen) url(assets/imagery/about-noroot-1.png) center/cover;min-height:640px"></div>
+</section>
+
+<section style="padding:96px 40px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:64px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Eyebrow" tone="muted" hint-size="160px,17px">Пресс-кит</x-import>
+      <h2 style="margin:0;font:400 34px/1.2 var(--font-display);letter-spacing:0.04em;text-transform:uppercase">Что входит</h2>
+      <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
+        <li style="font:300 15px/1.6 var(--font-sans);color:var(--text-secondary)">• пакшоты пяти формул;</li>
+        <li style="font:300 15px/1.6 var(--font-sans);color:var(--text-secondary)">• кампейн-фотографии;</li>
+        <li style="font:300 15px/1.6 var(--font-sans);color:var(--text-secondary)">• портрет основательницы;</li>
+        <li style="font:300 15px/1.6 var(--font-sans);color:var(--text-secondary)">• описания формул и ингредиентов;</li>
+        <li style="font:300 15px/1.6 var(--font-sans);color:var(--text-secondary)">• логотип и знак COMME DES MIROIRES.</li>
+      </ul>
+      <p style="margin:8px 0 0;font:300 13px/1.6 var(--font-sans);color:var(--text-muted)">Фото справа можно скачать для публикации. При использовании укажите RUE DE MIRÓ.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+      <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="6">
+        <a href="{{ ph.src }}" download="{{ ph.file }}" onMouseEnter="{{ ph.onEnter }}" onMouseLeave="{{ ph.onLeave }}" style="position:relative;aspect-ratio:4/5;background:var(--rdm-linen) url({{ ph.src }}) center/cover;display:block;text-decoration:none">
+          <span style="position:absolute;left:0;right:0;bottom:0;padding:12px;background:var(--rdm-white);font:500 10px/1.2 var(--font-sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--rdm-ink);display:flex;justify-content:space-between;opacity:{{ ph.op }};transition:opacity var(--dur-fast) var(--ease-soft)"><span>{{ ph.label }}</span><span>Скачать ↓</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface-inverse);color:var(--text-inverse);padding:96px 40px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Eyebrow" tone="white" hint-size="200px,17px">Контакт для прессы</x-import>
+      <a href="mailto:salut@ruedemiro.com" style="font:400 44px/1.1 var(--font-display);letter-spacing:0.04em;color:var(--rdm-white);text-decoration:none">salut@ruedemiro.com</a>
+      <div style="font:italic 400 22px/1.35 var(--font-editorial)">Интервью, съёмки, образцы для редакций</div>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Button" variant="inverse" href="https://t.me/ruedemiro" hint-size="160px,44px">Telegram</x-import>
+      <x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.Button" variant="inverse" href="Collaboration.dc.html" hint-size="220px,44px">Сотрудничество</x-import>
+    </div>
+  </div>
+</section>
+
+<x-import component-from-global-scope="RueDeMirDesignSystem_50ab64.SiteFooter" base="" hint-size="100%,160px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { h: null };
+  componentDidMount() { if (!window.RDM) this._t = setInterval(() => { if (window.RDM) { clearInterval(this._t); this.forceUpdate(); } }, 40); }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const R = window.RDM;
+    const ph = [['core-8972.jpeg', 'CORE'], ['recharge.jpg', 'RECHARGE'], ['escape.jpg', 'ESCAPE'], ['weightless.jpg', 'WEIGHTLESS'], ['balance.jpg', 'BALANCE'], ['about-wonderfi.jpg', 'Кампейн']];
+    return {
+      navItems: R ? R.items : [], nav: it => R && R.go(it),
+      facts: [
+        { k: 'Бренд', v: 'RUE DE MIRÓ' },
+        { k: 'Категория', v: 'Ароматные сухие масла для тела · Scented body oil' },
+        { k: 'Система', v: '1 аромат · 5 формул: CORE, RECHARGE, ESCAPE, WEIGHTLESS, BALANCE SPF 20' },
+        { k: 'Идея', v: 'Уход по состоянию кожи, а не по типу. Уход за телом — первый слой вашего стиля.' },
+        { k: 'Объём и цена', v: '100 мл · РРЦ 2190 ₽' },
+        { k: 'Где купить', v: 'Золотое яблоко, Ozon, Яндекс Маркет, бутики' },
+        { k: 'Основательница', v: 'Елена Мирошина' }
+      ],
+      photos: ph.map(([f, l]) => ({ src: 'assets/imagery/' + f, file: 'RUE-DE-MIRO-' + f, label: l, op: this.state.h === f ? 1 : 0, onEnter: () => this.setState({ h: f }), onLeave: () => this.setState({ h: null }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

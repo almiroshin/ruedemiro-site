@@ -1,0 +1,14 @@
+/* RUE DE MIRÓ — spacing, radii, borders, shadow, motion */
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:140px;
+--container:1200px;--gutter:40px;
+--radius-0:0;--radius-pill:999px;   /* square by default; pill only for tags */
+--border-hair:1px solid var(--rdm-stone);
+--border-ink:1px solid var(--rdm-ink);
+--shadow-none:none;
+--shadow-lift:0 12px 32px -18px rgba(27,26,25,.28); /* rare; product cutouts only */
+--ease-soft:cubic-bezier(.25,.1,.25,1); /* @kind other */
+--dur-fast:200ms; /* @kind other */
+--dur-base:400ms; /* @kind other */
+--dur-slow:800ms; /* @kind other */
+}
