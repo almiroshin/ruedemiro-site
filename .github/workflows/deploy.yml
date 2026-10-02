@@ -80,7 +80,7 @@ jobs:
           if ! curl -sk -m 15 --resolve "${SITE_HOST}:443:${ip}" -o /dev/null "https://${SITE_HOST}/"; then scheme=http; port=80; fi
           echo "checking over $scheme"
           fail=0
-          for f in index.html "Главная.dc.html" Assortment.dc.html Product.dc.html support.js rdm-data.js; do
+          for f in index.html assort.html core.html quiz.html js/dc-lite.js sitemap.xml; do
             url="${scheme}://${SITE_HOST}/$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1]))' "$f")"
             expected=$(md5sum < "$f" | cut -d' ' -f1)
             code=$(curl -sk --resolve "${SITE_HOST}:${port}:${ip}" -o got -w '%{http_code}' "$url?deploy=${GITHUB_SHA::7}")

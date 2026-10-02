@@ -1,14 +1,500 @@
 <!doctype html>
-<!-- Корень сайта: сразу открывает главную страницу «Главная.dc.html». Не из выгрузки Claude Design, см. README.md -->
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RUE DE MIRÓ</title>
-<meta http-equiv="refresh" content="0; url=%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.dc.html">
-<script>location.replace(encodeURI("Главная.dc.html") + location.search + location.hash);</script>
+<title>RUE DE MIRÓ — главная</title>
+<meta name="description" content="Сухие парфюмированные масла для тела RUE DE MIRÓ. Пять формул под разные состояния кожи, один фирменный аромат.">
+<meta property="og:title" content="RUE DE MIRÓ — главная">
+<meta property="og:description" content="Сухие парфюмированные масла для тела RUE DE MIRÓ. Пять формул под разные состояния кожи, один фирменный аромат.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ruedemiro.com/img/hero-blur.jpg">
+<link rel="icon" type="image/png" href="img/mirror-mark.png">
+<style>sc-if,sc-for{display:none}html,body{overflow-x:clip}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Forum&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F6F4F0;color:#1B1A19;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300}
+a{color:#1B1A19}a:hover{color:#4A4846}
+.btn:hover{background:#4A4846 !important;color:#FFFFFF !important}
+.btn-o:hover{background:#1B1A19 !important;color:#FFFFFF !important}
+.card img{transition:transform 400ms cubic-bezier(.25,.1,.25,1)}
+.card:hover img{transform:scale(1.03)}
+.card .alt{opacity:0;transition:opacity 500ms cubic-bezier(.25,.1,.25,1),transform 400ms cubic-bezier(.25,.1,.25,1)}
+.card:hover .alt,.card:focus-visible .alt{opacity:1}
+.qopt{transition:background 200ms}
+@media (max-width:900px){.vrow{padding:40px 20px !important}.vbox{width:100% !important}}.qopt:hover{background:#F6F4F0 !important}
+@media (max-width:900px){
+.g{grid-template-columns:repeat(1,minmax(0,1fr)) !important}
+.g2m{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+.hide-m{display:none !important}
+.col-m{flex-direction:column !important;align-items:flex-start !important}
+.px{padding-left:20px !important;padding-right:20px !important}
+.py{padding-top:64px !important;padding-bottom:64px !important}
+}
+
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}
+.mnav{display:none}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}img{max-width:100%}
+@media (max-width:1100px){
+[style*="repeat(5, minmax(0, 1fr))"]{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+[style*="repeat(4, minmax(0, 1fr))"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media (max-width:900px){
+.mnav{display:block}
+.g>*{grid-column:auto !important}
+.sp{position:static !important}
+[style*="repeat(5, minmax(0, 1fr))"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+dl{grid-template-columns:110px minmax(0,1fr) !important}
+h1{font-size:34px !important;hyphens:auto}
+h2{font-size:30px !important}
+[style*="min-height: 720px"],[style*="min-height: 860px"],[style*="min-height: 640px"]{min-height:0 !important}
+[style*="min-height: 640px"] img,[style*="min-height: 560px"]{min-height:420px}
+}
+@media (max-width:480px){
+[style*="repeat(4, minmax(0, 1fr))"]{grid-template-columns:repeat(1,minmax(0,1fr)) !important}
+.g2m{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media (max-width:900px){.press{font-size:20px !important;gap:8px 28px !important}}
+</style>
 </head>
 <body>
-<a href="%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.dc.html">Перейти на главную</a>
+<div id="dc-root" data-dc-pending>
+
+<div style="min-height: 100vh; background: #F6F4F0">
+
+<header style="position: sticky; top: 0; z-index: 10; margin-bottom: -77px; background: {{hdrBg}}; border-bottom: 1px solid {{hdrLine}}; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: background 400ms cubic-bezier(.25,.1,.25,1), border-color 400ms">
+<div class="px" style="max-width: 1280px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<a href="index.html" aria-label="RUE DE MIRÓ, на главную" style="display: flex; align-items: center; min-height: 44px"><img src="img/logo.svg" alt="RUE DE MIRÓ" style="height: 18px; width: auto; display: block"></a>
+<nav class="hide-m" aria-label="Основное меню" style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">
+<a href="assort.html" style="text-decoration: none; padding: 12px 0">Ассортимент</a>
+<a href="quiz.html" style="text-decoration: none; padding: 12px 0">Подбор</a>
+<a href="about-us.html" style="text-decoration: none; padding: 12px 0">О бренде</a>
+<a href="where-to-buy.html" style="text-decoration: none; padding: 12px 0">Где купить</a>
+<a href="collab.html" style="text-decoration: none; padding: 12px 0">Сотрудничество</a>
+</nav>
+<details class="mnav">
+<summary aria-label="Открыть меню" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Меню</summary>
+<nav aria-label="Мобильное меню" style="position: absolute; left: 0; right: 0; top: 100%; display: flex; flex-direction: column; padding: 8px 20px 24px; background: #F6F4F0; border-bottom: 1px solid #D6D2CB; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">
+<a href="assort.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #D6D2CB; text-decoration: none">Ассортимент</a>
+<a href="quiz.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #D6D2CB; text-decoration: none">Подбор формулы</a>
+<a href="about-us.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #D6D2CB; text-decoration: none">О бренде</a>
+<a href="where-to-buy.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #D6D2CB; text-decoration: none">Где купить</a>
+<a href="collab.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #D6D2CB; text-decoration: none">Сотрудничество</a>
+<a href="quiz.html" class="btn" style="display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 20px; background: #1B1A19; color: #FFFFFF; text-decoration: none">Подобрать формулу</a>
+</nav>
+</details>
+<a href="quiz.html" class="btn hide-m" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px; background: #1B1A19; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Подобрать формулу</a>
+</div>
+</header>
+
+<section style="position: relative; background: #ECE8E1">
+<div class="g" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 860px">
+<div class="px py" style="display: flex; flex-direction: column; justify-content: center; gap: 28px; padding: 96px 64px 96px max(40px, calc((100vw - 1280px) / 2 + 40px))">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Scented dry body oil · 100 мл</div>
+<h1 style="margin: 0; font-family: 'Forum', 'Optima', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Кожа отражает</h1>
+<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.25">Один аромат. Пять состояний кожи</p>
+<p style="margin: 0; max-width: 480px; font-size: 18px; line-height: 1.6; color: #4A4846">Сухие парфюмированные масла для тела. Пять формул под разные состояния кожи, один фирменный аромат и лёгкая текстура без жирной плёнки.</p>
+<div style="display: flex; gap: 16px; flex-wrap: wrap">
+<a href="quiz.html" class="btn" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; background: #1B1A19; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Подобрать формулу</a>
+<a href="assort.html" class="btn-o" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border: 1px solid #1B1A19; color: #1B1A19; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Все формулы</a>
+</div>
+</div>
+<div style="position: relative; min-height: 560px; overflow: hidden; background: #E4E0D4">
+<img src="img/hero-blur.jpg" alt="Размытый силуэт девушки у винтажного дивана, на паркете флаконы RUE DE MIRÓ" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; display: block">
+</div>
+</div>
+</section>
+
+<section style="border-bottom: 1px solid #D6D2CB; background: #FFFFFF">
+<div class="px col-m" style="max-width: 1280px; margin: 0 auto; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">
+<span>1 аромат · 5 формул</span>
+<span>Быстро впитывается · Не оставляет липкости</span>
+<span>Сатиновый финиш</span>
+</div>
+</section>
+
+<section class="py" style="padding: 120px 0">
+<div class="px" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 56px">
+<div class="col-m" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 640px">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Пять формул</div>
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Какое состояние кожи вы чувствуете сегодня?</h2>
+</div>
+<a href="assort.html" style="font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; padding: 12px 0">Весь ассортимент →</a>
+</div>
+<div class="g" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px">
+<a href="core.html" class="card" style="display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: #1B1A19">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #EFEBE0"><img src="img/core-1.jpg" alt="Масло CORE с цветком краспедии" style="width: 100%; height: 100%; object-fit: cover; display: block"><img class="alt" src="img/core-2.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Сухость и стянутость</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 24px; letter-spacing: 0.08em">CORE</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">Восстановление и комфорт</div>
+<div style="font-size: 14px; font-weight: 500">Подробнее о CORE →</div>
+</a>
+<a href="recharge.html" class="card" style="display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: #1B1A19">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #EDC6CC"><img src="img/recharge-1.jpg" alt="Масло RECHARGE над декоративной капустой" style="width: 100%; height: 100%; object-fit: cover; display: block"><img class="alt" src="img/recharge-ingredients.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Потеря тонуса и гладкости</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 24px; letter-spacing: 0.08em">RECHARGE</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">Тонус и эластичность</div>
+<div style="font-size: 14px; font-weight: 500">Подробнее о RECHARGE →</div>
+</a>
+<a href="escape.html" class="card" style="display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: #1B1A19">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #DCCFC1"><img src="img/escape-1.jpg" alt="Масло ESCAPE на травертине рядом с корой" style="width: 100%; height: 100%; object-fit: cover; display: block"><img class="alt" src="img/escape-ingredients.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Неровная текстура</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 24px; letter-spacing: 0.08em">ESCAPE</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">Баланс и ровная текстура</div>
+<div style="font-size: 14px; font-weight: 500">Подробнее об ESCAPE →</div>
+</a>
+<a href="weightless.html" class="card" style="display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: #1B1A19">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #E4E0DA"><img src="img/weightless-1.jpg" alt="Масло WEIGHTLESS с синеголовником" style="width: 100%; height: 100%; object-fit: cover; display: block"><img class="alt" src="img/weightless-2.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Тяжесть и напряжение</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 24px; letter-spacing: 0.08em">WEIGHTLESS</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">Расслабление и лёгкость</div>
+<div style="font-size: 14px; font-weight: 500">Подробнее о WEIGHTLESS →</div>
+</a>
+<a href="balance.html" class="card" style="display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: #1B1A19">
+<div style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #EEDC8C"><img src="img/balance-1.jpg" alt="Масло BALANCE на серебряном подносе с жемчугом" style="width: 100%; height: 100%; object-fit: cover; display: block"><img class="alt" src="img/balance-ingredients.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Тусклый и неровный вид</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 24px; letter-spacing: 0.08em">BALANCE</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">Ровный тон и сатиновый финиш</div>
+<div style="font-size: 12px; line-height: 1.5; letter-spacing: 0.04em; color: #4A4846">Содержит SPF 20</div>
+<div style="font-size: 14px; font-weight: 500">Подробнее о BALANCE →</div>
+</a>
+</div>
+</div>
+</section>
+
+<section id="quiz" class="py" style="padding: 120px 0; background: #ECE8E1; border-top: 1px solid #D6D2CB">
+<div class="px" style="max-width: 880px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Подбор за 30 секунд</div>
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Какое масло подойдёт именно вам</h2>
+<p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 1.6; color: #4A4846">Пять коротких вопросов. В конце — основная формула и дополнительная, для другой зоны.</p>
+</div>
+
+<sc-if value="{{qInProgress}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div class="hide-m qstrip" aria-hidden="true" style="display: flex; gap: 12px"><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #EFEBE0"><img src="img/core-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">CORE</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #EDC6CC"><img src="img/recharge-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">RECHARGE</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #DCCFC1"><img src="img/escape-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">ESCAPE</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #E4E0DA"><img src="img/weightless-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">WEIGHTLESS</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #EEDC8C"><img src="img/balance-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">BALANCE</div></div></div>
+<div style="display: flex; flex-direction: column; gap: 28px; padding: 48px; background: #FFFFFF; border: 1px solid #D6D2CB">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">
+<span>Вопрос {{qNum}} из {{qTotal}}</span>
+<sc-if value="{{qCanBack}}" hint-placeholder-val="{{false}}"><button type="button" data-dc-onclick="{{qBack}}" style="min-height: 44px; padding: 0; background: none; border: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #1B1A19; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">← Назад</button></sc-if>
+</div>
+<div style="height: 2px; background: #ECE8E1"><div style="height: 2px; background: #1B1A19; width: {{qProgress}}; transition: width 400ms cubic-bezier(.25,.1,.25,1)"></div></div>
+</div>
+<h3 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.2; letter-spacing: 0.02em">{{qTitle}}</h3>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D6D2CB">
+<sc-for list="{{qOpts}}" as="o" hint-placeholder-count="5">
+<button type="button" class="qopt" data-dc-onclick="{{o.pick}}" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 16px 8px; background: transparent; border: 0; border-bottom: 1px solid #D6D2CB; font: inherit; font-size: 16px; line-height: 1.4; text-align: left; color: #1B1A19; cursor: pointer"><span>{{o.t}}</span><span aria-hidden="true" style="flex-shrink: 0">→</span></button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{qDone}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div class="g" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); background: #FFFFFF; border: 1px solid #D6D2CB">
+<div style="grid-column: span 5; min-height: 420px; overflow: hidden; background: {{res.color}}"><img data-dc-src="{{res.img}}" alt="Масло {{res.name}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="grid-column: span 7; padding: 40px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Ваша основная формула</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 44px; letter-spacing: 0.08em">{{res.name}}</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 24px; line-height: 1.3">{{res.tagline}}</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">{{res.why}}</p>
+<sc-if value="{{res.spf}}" hint-placeholder-val="{{false}}"><div style="font-size: 12px; line-height: 1.5; letter-spacing: 0.04em; color: #4A4846">Содержит SPF 20</div></sc-if>
+<div style="font-size: 14px; line-height: 1.6"><span style="font-weight: 500">Зоны:</span> {{res.zones}}</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; padding-top: 8px">
+<a data-dc-href="{{res.href}}" class="btn" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #1B1A19; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Подробнее</a>
+<a href="where-to-buy.html" class="btn-o" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #1B1A19; color: #1B1A19; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Где купить</a>
+</div>
+</div>
+</div>
+<div class="col-m" style="display: flex; align-items: center; gap: 24px; padding: 24px; background: #FFFFFF; border: 1px solid #D6D2CB">
+<div style="width: 96px; height: 120px; flex-shrink: 0; overflow: hidden; background: {{add.color}}"><img data-dc-src="{{add.img}}" alt="Масло {{add.name}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="display: flex; flex-direction: column; gap: 8px; flex-grow: 1">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Дополнительно</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 26px; letter-spacing: 0.08em">{{add.name}}</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A4846">{{add.note}}</p>
+</div>
+<a data-dc-href="{{add.href}}" style="flex-shrink: 0; font-size: 14px; font-weight: 500; text-underline-offset: 4px; padding: 12px 0">Подробнее →</a>
+</div>
+<p style="margin: 0; text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; color: #4A4846">Аромат у всех формул один, поэтому их легко сочетать по зонам.</p>
+<div style="display: flex; justify-content: center"><button type="button" data-dc-onclick="{{qReset}}" style="min-height: 44px; padding: 0; background: none; border: 0; font: inherit; font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; color: #1B1A19">Пройти заново</button></div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section class="py" style="padding: 120px 0; background: #FFFFFF; border-top: 1px solid #D6D2CB; border-bottom: 1px solid #D6D2CB">
+<div class="px" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Как это работает</div>
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Как уход за лицом, только для тела</h2>
+</div>
+<div class="g" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; padding-top: 24px; border-top: 1px solid #1B1A19">
+<div style="font-family: 'Forum', Georgia, serif; font-size: 34px">01</div>
+<h3 style="margin: 0; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Заметьте состояние</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">Сухость, тяжесть в ногах, неровный тон. Кожа показывает, как мы спали и где устали.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding-top: 24px; border-top: 1px solid #1B1A19">
+<div style="font-family: 'Forum', Georgia, serif; font-size: 34px">02</div>
+<h3 style="margin: 0; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Выберите формулу</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">Формулы можно сочетать по зонам тела. Аромат у всех один, поэтому они не спорят друг с другом.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding-top: 24px; border-top: 1px solid #1B1A19">
+<div style="font-family: 'Forum', Georgia, serif; font-size: 34px">03</div>
+<h3 style="margin: 0; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Тонким слоем</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">На влажную кожу после душа. Через пять минут можно одеваться.</p>
+</div>
+</div>
+<div><a href="#quiz" class="btn" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; background: #1B1A19; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Подобрать по состоянию кожи</a></div>
+</div>
+</section>
+
+<section>
+<div class="g" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; background: #ECE8E1">
+<div class="vrow" style="display: flex; justify-content: center; padding: 72px 40px">
+<div class="vbox" style="position: relative; overflow: hidden; flex-shrink: 0; width: 440px; max-width: 100%; aspect-ratio: 9 / 16; background: #D6D2CB">
+<video id="rdm-video" autoplay="" muted="" loop="" playsinline="" preload="metadata" poster="vid/texture-poster.jpg" aria-label="Масло RUE DE MIRÓ капают из пипетки на ладонь и наносят на руку" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block"><source src="vid/texture.webm" type="video/webm"><source src="vid/texture.mp4" type="video/mp4"></video>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(27, 26, 25, 0.55), rgba(27, 26, 25, 0) 45%)"></div>
+<div style="position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 20px; color: #FFFFFF">
+<div aria-live="polite" style="position: relative; min-height: 84px">
+<sc-for list="{{caps}}" as="c" hint-placeholder-count="4">
+<p style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; max-width: 420px; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 26px; line-height: 1.2; opacity: {{c.op}}; transform: translateY({{c.y}}); transition: opacity 600ms cubic-bezier(.25,.1,.25,1), transform 600ms cubic-bezier(.25,.1,.25,1)">{{c.t}}</p>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<a href="#quiz" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #FFFFFF; color: #1B1A19; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Подобрать формулу</a>
+<button type="button" data-dc-onclick="{{vToggle}}" data-dc-aria-label="{{vLabel}}" style="min-height: 44px; min-width: 44px; padding: 0 12px; background: rgba(27, 26, 25, 0.35); border: 1px solid rgba(255, 255, 255, 0.6); color: #FFFFFF; font: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer">{{vText}}</button>
+</div>
+</div>
+</div>
+</div>
+<div class="px py" style="display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: 96px 64px; background: #ECE8E1">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Текстура</div>
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Сухое масло — как сыворотка для тела</h2>
+<p style="margin: 0; max-width: 480px; font-size: 16px; line-height: 1.6; color: #4A4846">Ощущается иначе, чем привычное масло: быстро впитывается и не оставляет жирной плёнки. Остаётся сатиновый финиш, без липкости и пятен на одежде.</p>
+<ul style="margin: 0; padding: 0; list-style: none; max-width: 480px; border-top: 1px solid #D6D2CB">
+<li style="display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid #D6D2CB; font-size: 15px; line-height: 1.5"><span style="font-family: 'Forum', Georgia, serif; font-size: 18px">01</span><span><strong style="font-weight: 500">Эмоленты</strong> смягчают кожу, удерживают влагу внутри и восстанавливают липидный баланс</span></li>
+<li style="display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid #D6D2CB; font-size: 15px; line-height: 1.5"><span style="font-family: 'Forum', Georgia, serif; font-size: 18px">02</span><span><strong style="font-weight: 500">Растительные масла</strong> питают кожу и делают её мягче на ощупь</span></li>
+<li style="display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid #D6D2CB; font-size: 15px; line-height: 1.5"><span style="font-family: 'Forum', Georgia, serif; font-size: 18px">03</span><span><strong style="font-weight: 500">Функциональные компоненты</strong> работают с конкретным состоянием кожи</span></li>
+</ul>
+<p style="margin: 0; max-width: 480px; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3">Проверить просто: нанесите, подождите пять минут, наденьте белую рубашку.</p>
+</div>
+</div>
+</section>
+
+<section class="py" style="padding: 120px 0">
+<div class="px" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 40px">
+<div class="col-m" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 640px"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Отзывы</div><h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Что говорят после первого флакона</h2><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">Настоящие отзывы покупателей с Ozon и «Золотого яблока». Мы только сократили их — без правок по смыслу.</p></div>
+<div style="display: flex; gap: 40px; text-align: left"><a href="https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'Forum', Georgia, serif; font-size: 44px; line-height: 1">4,9</span><span style="font-size: 13px; color: #4A4846">62 отзыва на Ozon</span></a><a href="https://goldapple.ru/review/product/99000151956" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none"><span style="font-family: 'Forum', Georgia, serif; font-size: 44px; line-height: 1">5,0</span><span style="font-size: 13px; color: #4A4846">12 оценок на «Золотом яблоке»</span></a></div>
+</div>
+<div role="tablist" aria-label="Тема отзывов" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{rvTabs}}" as="t" hint-placeholder-count="5"><button type="button" role="tab" data-dc-aria-selected="{{t.sel}}" data-dc-onclick="{{t.pick}}" style="min-height: 44px; padding: 0 20px; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid #1B1A19">{{t.label}}</button></sc-for>
+</div>
+<div class="g" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start">
+<sc-for list="{{rvItems}}" as="r" hint-placeholder-count="6"><figure style="margin: 0; display: flex; flex-direction: column; gap: 20px; padding: 32px; background: #FFFFFF; border: 1px solid #D6D2CB"><div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">{{r.tag}}</span><span role="img" aria-label="Оценка 5 из 5" style="font-size: 14px; letter-spacing: 0.2em">★★★★★</span></div><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.4">{{r.q}}</blockquote><figcaption style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-top: 16px; border-top: 1px solid #D6D2CB; font-size: 14px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 500">{{r.name}}</span><span style="color: #4A4846">{{r.f}}{{r.src}}</span></span><a data-dc-href="{{r.url}}" target="_blank" rel="noopener" style="font-size: 13px; text-underline-offset: 4px; padding: 8px 0; white-space: nowrap">Источник →</a></figcaption></figure></sc-for>
+</div>
+<sc-if value="{{rvHasMore}}" hint-placeholder-val="{{true}}"><div style="display: flex; justify-content: center"><button type="button" data-dc-onclick="{{rvShowMore}}" class="btn-o" style="min-height: 52px; padding: 0 32px; background: transparent; border: 1px solid #1B1A19; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #1B1A19; cursor: pointer">Показать ещё отзывы</button></div></sc-if>
+</div>
+</section>
+
+<section class="py" style="padding: 120px 0">
+<div class="px g" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Аромат</div>
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">След, а не облако</h2>
+<p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.6; color: #4A4846">Один фирменный аромат для всех пяти формул. Тёплый, древесный, близкий к коже. Он не входит в комнату раньше вас.</p>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D6D2CB"><div class="col-m" style="display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 24px; padding: 24px 0; border-bottom: 1px solid #D6D2CB"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846; padding-top: 8px">Верхние ноты</div><div style="display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; line-height: 1.2">Можжевельник · кориандр</div><div style="font-size: 14px; line-height: 1.5; color: #4A4846">Свежее, чуть пряное начало в первые минуты</div></div></div><div class="col-m" style="display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 24px; padding: 24px 0; border-bottom: 1px solid #D6D2CB"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846; padding-top: 8px">Сердце</div><div style="display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; line-height: 1.2">Мускатный орех</div><div style="font-size: 14px; line-height: 1.5; color: #4A4846">Тёплая пряность, которая раскрывается на коже</div></div></div><div class="col-m" style="display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 24px; padding: 24px 0; border-bottom: 1px solid #D6D2CB"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846; padding-top: 8px">База</div><div style="display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; line-height: 1.2">Ваниль · амбервуд · белый мускус</div><div style="font-size: 14px; line-height: 1.5; color: #4A4846">Мягкий древесный след, который остаётся рядом</div></div></div></div>
+</div>
+</section>
+
+<section class="py" style="padding: 96px 0; background: #FFFFFF; border-top: 1px solid #D6D2CB">
+<div class="px" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 40px; align-items: center; text-align: center">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">О нас писали</div>
+<div class="press" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; text-align: center; gap: 12px 48px; width: 100%; max-width: 1100px; font-family: 'Forum', Georgia, serif; font-size: 26px; line-height: 1.2; letter-spacing: 0.04em">
+<a href="https://www.marieclaire.ru/krasota/byuti-nakhodki-nedeli-muss-dlya-plotnosti-volos-irrigator-shetka-i-parfyumirovannoe-sukhoe-maslo/" target="_blank" rel="noopener" aria-label="Marie Claire: статья о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; border-bottom: 1px solid transparent; padding: 8px 0">Marie Claire</a><a href="https://www.buro247.ru/news/style/04-jul-2026-new-in-collections-of-beauty-brands.html" target="_blank" rel="noopener" aria-label="BURO.: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">BURO.</a><a href="https://www.timeout.ru/msk/feature/10-novyh-aromatnyh-sredstv-dlya-tela-kotorye-zamenyat-duhi" target="_blank" rel="noopener" aria-label="Time Out: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">Time Out</a><a href="https://theblueprint.ru/news/41060" target="_blank" rel="noopener" aria-label="The Blueprint: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">The Blueprint</a><a href="https://makeupmania.ru/sukhie-masla-rue-de-miro/" target="_blank" rel="noopener" aria-label="Makeupmania: статья о сухих маслах RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">Makeupmania</a><a href="https://dailymoscow.ru/beauty/letniy-byuti-minimum-uvlazhnenie-uhod-i-zashchita-ot-solnca" target="_blank" rel="noopener" aria-label="Daily Moscow: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">Daily Moscow</a><a href="https://www.kiz.ru/content/krasota/novosti-beauty/s-bolshim-udovolstviem-3-kosmeticheskikh-brenda-o-kotorykh-stoit-uznat/" target="_blank" rel="noopener" aria-label="Красота и здоровье: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">Красота и здоровье</a><a href="https://i-gency.ru/krasota/uhod-za-nogami-v-otpuske/" target="_blank" rel="noopener" aria-label="I-Gency: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">I-Gency</a><a href="https://www.gazetametro.ru/articles/pochemu-kozhe-nuzhno-maslo-i-kak-vybrat-pravilnoe-sredstvo-dlja-ljubogo-tipa-10-08-2026" target="_blank" rel="noopener" aria-label="Metro: статья о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">Metro</a><a href="https://new-magazine.ru/2026/07/13/bjuti-novinki-ijulja-2026/" target="_blank" rel="noopener" aria-label="New Magazine: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">New Magazine</a><a href="https://nownownow.ru/man/beauty/glavnye-pravila-uhoda-za-nogami-v-otpuske/" target="_blank" rel="noopener" aria-label="NowNowNow: публикация о RUE DE MIRÓ (откроется в новой вкладке)" style="text-decoration: none; padding: 8px 0">NowNowNow</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 48px; font-family: 'Forum', Georgia, serif; font-size: 22px; letter-spacing: 0.04em; color: #4A4846"><span style="display: inline-flex; align-items: baseline; gap: 10px">Лиза<span style="font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">в печати</span></span><span style="display: inline-flex; align-items: baseline; gap: 10px">The Voice<span style="font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">в печати</span></span>
+</div>
+<p style="margin: 0; font-size: 14px; color: #4A4846">Рейтинг 4,8–4,9 из 5 на площадках</p>
+</div>
+</section>
+
+<section style="background: #1B1A19; color: #FFFFFF">
+<div class="px py col-m" style="max-width: 1280px; margin: 0 auto; padding: 96px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Где купить</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #D6D2CB">Золотое яблоко, Ozon, Яндекс Маркет, MOODRĀ SHOP и салоны красоты. 100 мл · 2190 ₽</p>
+</div>
+<a href="where-to-buy.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Все магазины →</a>
+</div>
+</section>
+
+<footer style="background: #F6F4F0; border-top: 1px solid #D6D2CB">
+<div class="px" style="max-width: 1280px; margin: 0 auto; padding: 72px 40px 40px; display: flex; flex-direction: column; gap: 56px">
+<div class="g" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<img src="img/logo.svg" alt="RUE DE MIRÓ" style="height: 24px; width: auto; align-self: flex-start">
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 22px">Кожа отражает</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px">
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Уход</div>
+<a href="assort.html" style="text-decoration: none">Ассортимент</a>
+<a href="quiz.html" style="text-decoration: none">Подбор формулы</a>
+<a href="where-to-buy.html" style="text-decoration: none">Где купить</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px">
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Бренд</div>
+<a href="about-us.html" style="text-decoration: none">О бренде</a>
+<a href="collab.html" style="text-decoration: none">Сотрудничество</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px">
+<div style="font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Связь</div>
+<a href="mailto:salut@ruedemiro.com" style="text-decoration: none">salut@ruedemiro.com</a>
+<a href="https://t.me/ruedemiro" style="text-decoration: none">Telegram</a>
+<a href="https://ru.pinterest.com/RUEDEMIRO/" style="text-decoration: none">Pinterest</a>
+</div>
+</div>
+<div class="col-m" style="display: flex; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid #D6D2CB; font-size: 12px; color: #4A4846">
+<span>© 2026 RUE DE MIRÓ · ИП Мирошина Е. В.</span>
+<span style="display: flex; gap: 24px"><a href="#" style="color: #4A4846">Политика конфиденциальности</a><a href="#" style="color: #4A4846">Оферта</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+</div>
+<script type="text/plain" id="dc-script">
+class Component extends DCLogic {
+componentDidMount() {
+this._onScroll = () => { var s = window.scrollY > 8; if (!this.state || this.state.scrolled !== s) this.setState({ scrolled: s }); };
+window.addEventListener('scroll', this._onScroll, { passive: true });
+this._onScroll();
+this._initVideo();
+}
+_initVideo(tries) {
+var v = document.getElementById('rdm-video');
+if (!v) { if ((tries || 0) < 20) setTimeout(() => this._initVideo((tries || 0) + 1), 150); return; }
+this._v = v;
+v.muted = true;
+this._onTime = () => { var t = v.currentTime; var i = t < 2.3 ? 0 : t < 4.9 ? 1 : t < 7.5 ? 2 : 3; if (!this.state || this.state.cap !== i) this.setState({ cap: i }); };
+v.addEventListener('timeupdate', this._onTime);
+var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) { v.pause(); this.setState({ vPaused: true }); }
+else { var p = v.play(); if (p && p.catch) p.catch(() => this.setState({ vPaused: true })); }
+}
+componentWillUnmount() {
+window.removeEventListener('scroll', this._onScroll);
+if (this._v && this._onTime) this._v.removeEventListener('timeupdate', this._onTime);
+}
+renderVals() {
+var self = this;
+var st = this.state || {};
+var F = {
+core: { href: 'core.html', name: 'CORE', tagline: 'Восстановление и комфорт', zones: 'голени · руки · локти · колени', img: 'img/core-1.jpg', color: '#EFEBE0', why: 'Ваша кожа просит комфорта: сквалан, миндальное масло и холестерин поддерживают защитный барьер и снимают ощущение стянутости.', use: 'на локти, колени и голени, где кожа суше всего' },
+recharge: { href: 'recharge.html', name: 'RECHARGE', tagline: 'Тонус и эластичность', zones: 'бёдра · ягодицы · живот · грудь · руки', img: 'img/recharge-1.jpg', color: '#EDC6CC', why: 'Вам важны упругость и тонус: амарант, имбирь и соевое масло питают кожу, и она визуально выглядит более гладкой.', use: 'на бёдра и живот, чтобы добавить ощущение тонуса' },
+escape: { href: 'escape.html', name: 'ESCAPE', tagline: 'Баланс и ровная текстура', zones: 'спина · плечи · руки · декольте', img: 'img/escape-1.jpg', color: '#DCCFC1', why: 'Коже нужен баланс: масло нима, кора ивы и гамамелис помогают ей выглядеть ровнее и чище.', use: 'на спину и плечи, где появляются несовершенства' },
+weightless: { href: 'weightless.html', name: 'WEIGHTLESS', tagline: 'Расслабление и лёгкость', zones: 'икры · ступни · трапеция', img: 'img/weightless-1.jpg', color: '#E4E0DA', why: 'Телу не хватает лёгкости: ментил лактат дарит мягкую прохладу, василёк и миндальное масло помогают расслабиться после долгого дня.', use: 'на икры и ступни вечером, когда ноги устали' },
+balance: { href: 'balance.html', name: 'BALANCE', tagline: 'Ровный тон и сатиновый финиш', zones: 'руки · плечи · декольте · ноги', img: 'img/balance-1.jpg', color: '#EEDC8C', why: 'Коже не хватает сияния: экстракт сельдерея и жемчужная пудра визуально выравнивают тон и дают мягкое сияние с сатиновым финишем.', use: 'на руки, плечи и декольте — для мягкого сияния и ровного тона' }
+};
+var Q = [
+{ t: 'Что сейчас больше всего беспокоит кожу тела?', o: [
+{ t: 'Сухость и стянутость после душа', s: { core: 3 } },
+{ t: 'Кожа стала менее упругой', s: { recharge: 3 } },
+{ t: 'Неровная текстура, несовершенства', s: { escape: 3 } },
+{ t: 'Тяжесть и напряжение, особенно в ногах', s: { weightless: 3 } },
+{ t: 'Тусклый, неровный тон', s: { balance: 3 } }
+] },
+{ t: 'Какой зоне хочется уделить больше внимания?', o: [
+{ t: 'Руки, локти, колени', s: { core: 2 } },
+{ t: 'Бёдра, живот, ягодицы', s: { recharge: 2 } },
+{ t: 'Спина, плечи, декольте', s: { escape: 2, balance: 1 } },
+{ t: 'Икры, ступни, шея и плечи', s: { weightless: 2 } },
+{ t: 'Там, где хочется сияния: руки, плечи, декольте', s: { balance: 2 } }
+] },
+{ t: 'Когда вы обычно ухаживаете за телом?', o: [
+{ t: 'Утром, перед выходом из дома', s: { balance: 2, recharge: 1 } },
+{ t: 'Вечером, после душа', s: { core: 1, weightless: 1 } },
+{ t: 'После спорта или дня на ногах', s: { weightless: 2, recharge: 1 } },
+{ t: 'Когда вспомню, без режима', s: { core: 1, escape: 1 } }
+] },
+{ t: 'Какое ощущение хочется после нанесения?', o: [
+{ t: 'Мягкость и комфорт', s: { core: 2 } },
+{ t: 'Упругость и бодрость', s: { recharge: 2 } },
+{ t: 'Чистота и лёгкость', s: { escape: 2 } },
+{ t: 'Прохлада и расслабление', s: { weightless: 2 } },
+{ t: 'Сияние и ровный тон', s: { balance: 2 } }
+] },
+{ t: 'Что ближе к вашему ритму жизни?', o: [
+{ t: 'Офис, сухой воздух, кондиционер', s: { core: 2 } },
+{ t: 'Регулярные тренировки', s: { recharge: 1, escape: 1 } },
+{ t: 'Много хожу, весь день на ногах', s: { weightless: 2 } },
+{ t: 'Хочу, чтобы кожа выглядела отдохнувшей, даже если не выспалась', s: { balance: 2 } },
+{ t: 'Стресс, мало сна', s: { escape: 1, weightless: 1 } }
+] }
+];
+var step = st.qStep || 0;
+var ans = st.qAns || [];
+var done = step >= Q.length;
+var cur = done ? Q[Q.length - 1] : Q[step];
+var opts = cur.o.map(function (o, i) {
+return { t: o.t, pick: function () { self.setState({ qAns: ans.slice(0, step).concat([i]), qStep: step + 1 }); } };
+});
+var order = ['core', 'recharge', 'escape', 'weightless', 'balance'];
+var score = { core: 0, recharge: 0, escape: 0, weightless: 0, balance: 0 };
+ans.forEach(function (a, qi) { var s = Q[qi].o[a].s; for (var k in s) score[k] += s[k]; });
+var first = ans.length ? Object.keys(Q[0].o[ans[0]].s)[0] : 'core';
+var ranked = order.slice().sort(function (a, b) {
+if (score[b] !== score[a]) return score[b] - score[a];
+if (a === first) return -1;
+if (b === first) return 1;
+return order.indexOf(a) - order.indexOf(b);
+});
+var m = F[ranked[0]], a2 = F[ranked[1]];
+var RV = [{"cat": "texture", "tag": "Текстура", "q": "«…Впитывается моментально, никакой липкости и жирной плёнки, как от обычных масел. …После него можно сразу одеваться, ничего не пачкается.»", "name": "Татьяна Ш.", "f": "", "src": "Ozon", "url": "https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/"}, {"cat": "texture", "tag": "Текстура", "q": "«Быстро впитывается в кожу, не оставляет масляных пятен на одежде, приятный запах. Хорошо питает и увлажняет кожу.»", "name": "Арина К.", "f": "RECHARGE · ", "url": "https://goldapple.ru/review/product/99000151956", "src": "Золотое яблоко"}, {"cat": "system", "tag": "Система", "q": "«…кожа мягкая, напитанная… трогать приятно, не как жирную сковородку гладить. …Хочется попробовать другие бутылочки, благо, что аромат везде одинаковый — можно наносить на разные зоны тела, и запах будет единый.»", "name": "Елизавета З.", "f": "RECHARGE · ", "url": "https://goldapple.ru/review/product/99000151956", "src": "Золотое яблоко"}, {"cat": "scent", "tag": "Аромат", "q": "«Масло отличное! Кожу увлажняет и питает. А запах — нежнейший и стойкий, можно не пользоваться парфюмом.»", "name": "Елена Д.", "f": "", "src": "Ozon", "url": "https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/"}, {"cat": "feel", "tag": "Ощущения", "q": "«…по ощущениям будто тончайшая вуаль на коже… впитывается за 30 секунд, нет жирности как от обычного масла. …Кожа стала гладкой.»", "name": "Елена М.", "f": "ESCAPE · ", "url": "https://goldapple.ru/review/product/99000151957", "src": "Золотое яблоко"}, {"cat": "feel", "tag": "Ощущения", "q": "«После спорта теперь всегда пользуюсь данным маслом! …Не оставляет жирных следов и имеет приятный аромат, сохраняющийся на весь день.»", "name": "Владимир Г.", "f": "", "src": "Ozon", "url": "https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/"}, {"cat": "scent", "tag": "Аромат", "q": "«…впитывается безумно быстро и не пачкает одежду. Очень приятный ритуал нанесения… часто спрашивают про аромат, который долго остаётся на коже.»", "name": "Алла Е.", "f": "ESCAPE · ", "url": "https://goldapple.ru/review/product/99000151957", "src": "Золотое яблоко"}, {"cat": "feel", "tag": "Ощущения", "q": "«Сделал кожу мягкой и гладкой. Очень приятно использовать после душа, уходит чувство стянутости кожи. Тело выглядит ухоженно!»", "name": "Мария Ш.", "f": "", "src": "Ozon", "url": "https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/"}, {"cat": "feel", "tag": "Ощущения", "q": "«…Моментально впитывается, стала наносить вместо крема и очень довольна результатом! Кожа другая, не знаю как объяснить, но очень притягательная… хочется потрогать.»", "name": "Алла Е.", "f": "BALANCE · ", "url": "https://goldapple.ru/review/product/99000151959", "src": "Золотое яблоко"}, {"cat": "system", "tag": "Система", "q": "«…Впитывается практически сразу, ощущение бархатистости без липкости и плёнки. Аромат нежный и ненавязчивый… Теперь хочу попробовать остальные варианты тоже.»", "name": "Елена Т.", "f": "", "src": "Ozon", "url": "https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/"}, {"cat": "texture", "tag": "Текстура", "q": "«Очень быстро впитывается, не оставляет жирного блеска.»", "name": "Олеся С.", "f": "CORE · ", "url": "https://goldapple.ru/review/product/99000151958", "src": "Золотое яблоко"}, {"cat": "scent", "tag": "Аромат", "q": "«Запах потрясающий… впитывается мгновенно… оставляет чувство полного комфорта… при этом отлично питает.»", "name": "Алёна Ч.", "f": "RECHARGE · ", "url": "https://goldapple.ru/review/product/99000151956", "src": "Золотое яблоко"}, {"cat": "system", "tag": "Система", "q": "«Очень понравилось масло. Хорошее увлажнение, не оставляет следов. Заказала всю серию.»", "name": "Ольга В.", "f": "", "src": "Ozon", "url": "https://www.ozon.ru/product/rue-de-miro-suhoe-maslo-dlya-tela-dlya-uprugosti-kozhi-amaranth-ginger-soybean-oil-2576469654/reviews/"}, {"cat": "scent", "tag": "Аромат", "q": "«Очень приятный, нежный шлейфовый аромат и хорошее увлажнение.»", "name": "Julia K.", "f": "WEIGHTLESS · ", "url": "https://goldapple.ru/review/product/99000151976", "src": "Золотое яблоко"}, {"cat": "texture", "tag": "Текстура", "q": "«Очень приятный запах, быстро впитывается, не оставляет липких следов.»", "name": "Александра С.", "f": "RECHARGE · ", "url": "https://goldapple.ru/review/product/99000151956", "src": "Золотое яблоко"}];
+var rvCat = st.rvCat || 'all';
+var rvTabs = [['all', 'Все'], ['texture', 'Текстура'], ['scent', 'Аромат'], ['feel', 'Ощущения'], ['system', 'Система']].map(function (p) {
+var on = rvCat === p[0];
+return { label: p[1], sel: on ? 'true' : 'false', bg: on ? '#1B1A19' : 'transparent', fg: on ? '#FFFFFF' : '#1B1A19', pick: function () { self.setState({ rvCat: p[0], rvMore: false }); } };
+});
+var rvAll = RV.filter(function (r) { return rvCat === 'all' || r.cat === rvCat; });
+var rvMore = !!st.rvMore;
+var rvItems = rvMore ? rvAll : rvAll.slice(0, 6);
+var cap = st.cap || 0;
+var CAPS = ['Две-три капли', 'Тонким слоем на влажную кожу', 'Впитывается, как сыворотка', 'Без плёнки. Через пять минут можно одеваться'];
+var caps = CAPS.map(function (t, k) { return { t: t, op: k === cap ? '1' : '0', y: k === cap ? '0' : '8px' }; });
+return {
+rvHasMore: !rvMore && rvAll.length > 6,
+rvShowMore: function () { self.setState({ rvMore: true }); },
+rvTabs: rvTabs,
+rvItems: rvItems,
+caps: caps,
+vText: st.vPaused ? 'Смотреть' : 'Пауза',
+vLabel: st.vPaused ? 'Воспроизвести видео' : 'Поставить видео на паузу',
+vToggle: function () { var v = self._v; if (!v) return; if (v.paused) { v.play(); self.setState({ vPaused: false }); } else { v.pause(); self.setState({ vPaused: true }); } },
+hdrBg: st.scrolled ? '#F6F4F0' : 'rgba(246, 244, 240, 0.35)',
+hdrLine: st.scrolled ? '#D6D2CB' : 'rgba(214, 210, 203, 0)',
+qInProgress: !done,
+qDone: done,
+qNum: Math.min(step + 1, Q.length),
+qTotal: Q.length,
+qTitle: cur.t,
+qOpts: opts,
+qProgress: Math.round((Math.min(step, Q.length) / Q.length) * 100) + '%',
+qCanBack: step > 0 && !done,
+qBack: function () { self.setState({ qStep: Math.max(0, step - 1) }); },
+qReset: function () { self.setState({ qStep: 0, qAns: [] }); },
+res: { href: m.href, spf: ranked[0] === 'balance', name: m.name, tagline: m.tagline, zones: m.zones, img: m.img, color: m.color, why: m.why },
+add: { href: a2.href, name: a2.name, img: a2.img, color: a2.color, note: 'Добавьте ' + a2.use + '.' + (ranked[1] === 'balance' ? ' Содержит SPF 20.' : '') }
+};
+}
+}
+</script>
+<script src="js/dc-lite.js"></script>
 </body>
 </html>
