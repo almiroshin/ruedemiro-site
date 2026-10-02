@@ -315,6 +315,24 @@ return { hdrBg: (this.state && this.state.scrolled) ? '#F6F4F0' : 'rgba(246, 244
   });
 })();
 </script>
+<div id="mt" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;max-width:calc(100% - 32px);width:440px;background:#F6F4F0;color:#1B1A19;border:1px solid #1B1A19;box-shadow:0 8px 24px rgba(27,26,25,.25);padding:16px 20px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:14px;line-height:1.5;display:none"></div>
+<script>
+(function(){
+  var t=document.getElementById('mt'), timer;
+  function toast(html){t.innerHTML=html;t.style.display='block';clearTimeout(timer);timer=setTimeout(function(){t.style.display='none'},7000)}
+  function copy(s){
+    if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(s)}
+    var ta=document.createElement('textarea');ta.value=s;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy')}catch(e){} document.body.removeChild(ta); return Promise.resolve();
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="mailto:"]'); if(!a)return;
+    var addr=decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+    copy(addr).then(function(){},function(){});
+    toast('Адрес <b style="font-weight:500">'+addr+'</b> скопирован. Если почтовая программа не открылась, вставьте его в письмо в своей почте&nbsp;— или <a href="https://t.me/ruedemiro" target="_blank" rel="noopener" style="color:#1B1A19;text-underline-offset:3px">напишите в Telegram</a>.');
+  },true);
+})();
+</script>
 
 </body>
 </html>
