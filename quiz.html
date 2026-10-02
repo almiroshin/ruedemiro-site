@@ -19,6 +19,7 @@ a{color:#1B1A19}a:hover{color:#4A4846}
 .btn:hover{background:#4A4846 !important;color:#FFFFFF !important}
 .btn-o:hover{background:#1B1A19 !important;color:#FFFFFF !important}
 .opt{transition:border-color 200ms}
+.qopt{transition:background 200ms}.qopt:hover{background:#F6F4F0 !important}
 .opt:hover{border-color:#1B1A19 !important}
 @media (max-width:900px){
 .g{grid-template-columns:repeat(1,minmax(0,1fr)) !important}
@@ -82,12 +83,74 @@ h2{font-size:30px !important}
 </div>
 </header>
 
-<section class="py" style="padding: 96px 0 120px">
+<section id="quiz" class="py" style="padding: 136px 0 120px; background: #ECE8E1">
+<div class="px" style="max-width: 880px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Подбор за 30 секунд</div>
+<h1 style="margin: 0; font-family: \'Forum\', Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Какое масло подойдёт именно вам</h1>
+<p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 1.6; color: #4A4846">Пять коротких вопросов. В конце — основная формула и дополнительная, для другой зоны.</p>
+</div>
+
+<sc-if value="{{qInProgress}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div class="hide-m qstrip" aria-hidden="true" style="display: flex; gap: 12px"><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #EFEBE0"><img src="img/core-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">CORE</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #EDC6CC"><img src="img/recharge-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">RECHARGE</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #DCCFC1"><img src="img/escape-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">ESCAPE</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #E4E0DA"><img src="img/weightless-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">WEIGHTLESS</div></div><div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 4 / 5; overflow: hidden; background: #EEDC8C"><img src="img/balance-1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div><div style="font-family: 'Forum', Georgia, serif; font-size: 14px; letter-spacing: 0.08em; text-align: center">BALANCE</div></div></div>
+<div style="display: flex; flex-direction: column; gap: 28px; padding: 48px; background: #FFFFFF; border: 1px solid #D6D2CB">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">
+<span>Вопрос {{qNum}} из {{qTotal}}</span>
+<sc-if value="{{qCanBack}}" hint-placeholder-val="{{false}}"><button type="button" data-dc-onclick="{{qBack}}" style="min-height: 44px; padding: 0; background: none; border: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #1B1A19; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">← Назад</button></sc-if>
+</div>
+<div style="height: 2px; background: #ECE8E1"><div style="height: 2px; background: #1B1A19; width: {{qProgress}}; transition: width 400ms cubic-bezier(.25,.1,.25,1)"></div></div>
+</div>
+<h3 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.2; letter-spacing: 0.02em">{{qTitle}}</h3>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D6D2CB">
+<sc-for list="{{qOpts}}" as="o" hint-placeholder-count="5">
+<button type="button" class="qopt" data-dc-onclick="{{o.pick}}" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 16px 8px; background: transparent; border: 0; border-bottom: 1px solid #D6D2CB; font: inherit; font-size: 16px; line-height: 1.4; text-align: left; color: #1B1A19; cursor: pointer"><span>{{o.t}}</span><span aria-hidden="true" style="flex-shrink: 0">→</span></button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{qDone}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div class="g" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); background: #FFFFFF; border: 1px solid #D6D2CB">
+<div style="grid-column: span 5; min-height: 420px; overflow: hidden; background: {{res.color}}"><img data-dc-src="{{res.img}}" alt="Масло {{res.name}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="grid-column: span 7; padding: 40px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Ваша основная формула</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 44px; letter-spacing: 0.08em">{{res.name}}</div>
+<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 24px; line-height: 1.3">{{res.tagline}}</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">{{res.why}}</p>
+<sc-if value="{{res.spf}}" hint-placeholder-val="{{false}}"><div style="font-size: 12px; line-height: 1.5; letter-spacing: 0.04em; color: #4A4846">Содержит SPF 20</div></sc-if>
+<div style="font-size: 14px; line-height: 1.6"><span style="font-weight: 500">Зоны:</span> {{res.zones}}</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; padding-top: 8px">
+<a data-dc-href="{{res.href}}" class="btn" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; background: #1B1A19; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Подробнее</a>
+<a href="where-to-buy.html" class="btn-o" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #1B1A19; color: #1B1A19; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Где купить</a>
+</div>
+</div>
+</div>
+<div class="col-m" style="display: flex; align-items: center; gap: 24px; padding: 24px; background: #FFFFFF; border: 1px solid #D6D2CB">
+<div style="width: 96px; height: 120px; flex-shrink: 0; overflow: hidden; background: {{add.color}}"><img data-dc-src="{{add.img}}" alt="Масло {{add.name}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<div style="display: flex; flex-direction: column; gap: 8px; flex-grow: 1">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Дополнительно</div>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 26px; letter-spacing: 0.08em">{{add.name}}</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A4846">{{add.note}}</p>
+</div>
+<a data-dc-href="{{add.href}}" style="flex-shrink: 0; font-size: 14px; font-weight: 500; text-underline-offset: 4px; padding: 12px 0">Подробнее →</a>
+</div>
+<p style="margin: 0; text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 20px; color: #4A4846">Аромат у всех формул один, поэтому их легко сочетать по зонам.</p>
+<div style="display: flex; justify-content: center"><button type="button" data-dc-onclick="{{qReset}}" style="min-height: 44px; padding: 0; background: none; border: 0; font: inherit; font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; color: #1B1A19">Пройти заново</button></div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section class="py" style="padding: 104px 0 120px">
 <div class="px" style="max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
-<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Подбор · сначала состояние</div>
-<h1 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Какое состояние кожи вы чувствуете сегодня?</h1>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A4846">Выберите то, что ближе всего. Если состояний несколько, выберите главное, а остальные формулы добавьте позже на другие зоны.</p>
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Быстрый выбор</div>
+<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase">Уже знаете, что нужно коже?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A4846">Выберите главное состояние&nbsp;— покажем подходящую формулу. Остальные можно добавить позже на&nbsp;другие зоны.</p>
 </div>
 
 <div class="g" role="radiogroup" aria-label="Состояние кожи" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px">
@@ -105,7 +168,7 @@ h2{font-size:30px !important}
 <div style="grid-column: span 5; min-height: 420px; overflow: hidden; background: {{result.color}}"><img data-dc-src="{{result.img}}" alt="{{result.alt}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
 <div style="grid-column: span 7; padding: 48px; display: flex; flex-direction: column; gap: 20px">
 <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4A4846">Ваша формула</div>
-<h2 style="margin: 0; font-family: 'Forum', Georgia, serif; font-weight: 400; font-size: 48px; letter-spacing: 0.08em">{{result.name}}</h2>
+<div style="font-family: 'Forum', Georgia, serif; font-size: 48px; letter-spacing: 0.08em">{{result.name}}</div>
 <p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 24px; line-height: 1.3">{{result.tagline}}</p>
 <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4846">{{result.text}}</p>
 <sc-if value="{{result.spf}}" hint-placeholder-val="{{false}}"><div style="font-size: 12px; line-height: 1.5; letter-spacing: 0.04em; color: #4A4846">Содержит SPF 20</div></sc-if>
@@ -132,7 +195,7 @@ h2{font-size:30px !important}
 <footer style="background: #F6F4F0; border-top: 1px solid #D6D2CB">
 <div class="px col-m" style="max-width: 1280px; margin: 0 auto; padding: 32px 40px; display: flex; justify-content: space-between; gap: 16px; font-size: 12px; color: #4A4846">
 <span>© 2026 RUE DE MIRÓ · Кожа отражает</span>
-<span style="display: flex; gap: 24px"><a href="mailto:salut@ruedemiro.com" style="color: #4A4846">salut@ruedemiro.com</a><a href="https://t.me/ruedemiro" style="color: #4A4846">Telegram</a></span>
+<span style="display: flex; gap: 24px"><a href="mailto:salut@ruedemiro.com" style="color: #4A4846">salut@ruedemiro.com</a><a href="https://t.me/ruedemiro" style="color: #4A4846">Telegram</a><a href="privacy.html" style="color: #4A4846">Политика конфиденциальности</a><a href="terms.html" style="color: #4A4846">Условия покупки</a></span>
 </div>
 </footer>
 
@@ -161,6 +224,68 @@ var F = [
 { id: 'balance', href: 'balance.html', state: 'Тусклый и неровный вид', hint: 'Хочется сияния и ровного тона', name: 'BALANCE', tagline: 'Ровный тон и сатиновый финиш', color: '#EEDC8C', img: 'img/balance.jpg', zones: 'руки · плечи · декольте · ноги', inci: 'Celery extract, Pearl powder', text: 'Экстракт сельдерея и жемчужная пудра визуально выравнивают тон и дают мягкое сияние с сатиновым финишем.' }
 ];
 var self = this;
+var st = this.state || {};
+var FM = {
+core: { href: 'core.html', name: 'CORE', tagline: 'Восстановление и комфорт', zones: 'голени · руки · локти · колени', img: 'img/core-1.jpg', color: '#EFEBE0', why: 'Ваша кожа просит комфорта: сквалан, миндальное масло и холестерин поддерживают защитный барьер и снимают ощущение стянутости.', use: 'на локти, колени и голени, где кожа суше всего' },
+recharge: { href: 'recharge.html', name: 'RECHARGE', tagline: 'Тонус и эластичность', zones: 'бёдра · ягодицы · живот · грудь · руки', img: 'img/recharge-1.jpg', color: '#EDC6CC', why: 'Вам важны упругость и тонус: амарант, имбирь и соевое масло питают кожу, и она визуально выглядит более гладкой.', use: 'на бёдра и живот, чтобы добавить ощущение тонуса' },
+escape: { href: 'escape.html', name: 'ESCAPE', tagline: 'Баланс и ровная текстура', zones: 'спина · плечи · руки · декольте', img: 'img/escape-1.jpg', color: '#DCCFC1', why: 'Коже нужен баланс: масло нима, кора ивы и гамамелис помогают ей выглядеть ровнее и чище.', use: 'на спину и плечи, где появляются несовершенства' },
+weightless: { href: 'weightless.html', name: 'WEIGHTLESS', tagline: 'Расслабление и лёгкость', zones: 'икры · ступни · трапеция', img: 'img/weightless-1.jpg', color: '#E4E0DA', why: 'Телу не хватает лёгкости: ментил лактат дарит мягкую прохладу, миндальное масло смягчает кожу, а экстракт василька её успокаивает.', use: 'на икры и ступни вечером, когда ноги устали' },
+balance: { href: 'balance.html', name: 'BALANCE', tagline: 'Ровный тон и сатиновый финиш', zones: 'руки · плечи · декольте · ноги', img: 'img/balance-1.jpg', color: '#EEDC8C', why: 'Коже не хватает сияния: экстракт сельдерея и жемчужная пудра визуально выравнивают тон и дают мягкое сияние с сатиновым финишем.', use: 'на руки, плечи и декольте — для мягкого сияния и ровного тона' }
+};
+var Q = [
+{ t: 'Что сейчас больше всего беспокоит кожу тела?', o: [
+{ t: 'Сухость и стянутость после душа', s: { core: 3 } },
+{ t: 'Кожа стала менее упругой', s: { recharge: 3 } },
+{ t: 'Неровная текстура, несовершенства', s: { escape: 3 } },
+{ t: 'Тяжесть и напряжение, особенно в ногах', s: { weightless: 3 } },
+{ t: 'Тусклый, неровный тон', s: { balance: 3 } }
+] },
+{ t: 'Какой зоне хочется уделить больше внимания?', o: [
+{ t: 'Руки, локти, колени', s: { core: 2 } },
+{ t: 'Бёдра, живот, ягодицы', s: { recharge: 2 } },
+{ t: 'Спина, плечи, декольте', s: { escape: 2, balance: 1 } },
+{ t: 'Икры, ступни, шея и плечи', s: { weightless: 2 } },
+{ t: 'Там, где хочется сияния: руки, плечи, декольте', s: { balance: 2 } }
+] },
+{ t: 'Когда вы обычно ухаживаете за телом?', o: [
+{ t: 'Утром, перед выходом из дома', s: { balance: 2, recharge: 1 } },
+{ t: 'Вечером, после душа', s: { core: 1, weightless: 1 } },
+{ t: 'После спорта или дня на ногах', s: { weightless: 2, recharge: 1 } },
+{ t: 'Когда вспомню, без режима', s: { core: 1, escape: 1 } }
+] },
+{ t: 'Какое ощущение хочется после нанесения?', o: [
+{ t: 'Мягкость и комфорт', s: { core: 2 } },
+{ t: 'Упругость и бодрость', s: { recharge: 2 } },
+{ t: 'Чистота и лёгкость', s: { escape: 2 } },
+{ t: 'Прохлада и расслабление', s: { weightless: 2 } },
+{ t: 'Сияние и ровный тон', s: { balance: 2 } }
+] },
+{ t: 'Что ближе к вашему ритму жизни?', o: [
+{ t: 'Офис, сухой воздух, кондиционер', s: { core: 2 } },
+{ t: 'Регулярные тренировки', s: { recharge: 1, escape: 1 } },
+{ t: 'Много хожу, весь день на ногах', s: { weightless: 2 } },
+{ t: 'Хочу, чтобы кожа выглядела отдохнувшей, даже если не выспалась', s: { balance: 2 } },
+{ t: 'Стресс, мало сна', s: { escape: 1, weightless: 1 } }
+] }
+];
+var step = st.qStep || 0;
+var ans = st.qAns || [];
+var done = step >= Q.length;
+var cur = done ? Q[Q.length - 1] : Q[step];
+var opts = cur.o.map(function (o, i) {
+return { t: o.t, pick: function () { self.setState({ qAns: ans.slice(0, step).concat([i]), qStep: step + 1 }); } };
+});
+var order = ['core', 'recharge', 'escape', 'weightless', 'balance'];
+var score = { core: 0, recharge: 0, escape: 0, weightless: 0, balance: 0 };
+ans.forEach(function (a, qi) { var s = Q[qi].o[a].s; for (var k in s) score[k] += s[k]; });
+var first = ans.length ? Object.keys(Q[0].o[ans[0]].s)[0] : 'core';
+var ranked = order.slice().sort(function (a, b) {
+if (score[b] !== score[a]) return score[b] - score[a];
+if (a === first) return -1;
+if (b === first) return 1;
+return order.indexOf(a) - order.indexOf(b);
+});
+var m = FM[ranked[0]], a2 = FM[ranked[1]];
 var picked = this.state.picked;
 var options = F.map(function (f) {
 var on = picked === f.id;
@@ -176,6 +301,18 @@ border: on ? '2px solid #1B1A19' : '1px solid #D6D2CB'
 });
 var r = F.filter(function (f) { return f.id === picked; })[0] || null;
 return {
+qInProgress: !done,
+qDone: done,
+qNum: Math.min(step + 1, Q.length),
+qTotal: Q.length,
+qTitle: cur.t,
+qOpts: opts,
+qProgress: Math.round((Math.min(step, Q.length) / Q.length) * 100) + '%',
+qCanBack: step > 0 && !done,
+qBack: function () { self.setState({ qStep: Math.max(0, step - 1) }); },
+qReset: function () { self.setState({ qStep: 0, qAns: [] }); },
+res: { href: m.href, spf: ranked[0] === 'balance', name: m.name, tagline: m.tagline, zones: m.zones, img: m.img, color: m.color, why: m.why },
+add: { href: a2.href, name: a2.name, img: a2.img, color: a2.color, note: 'Добавьте ' + a2.use + '.' + (ranked[1] === 'balance' ? ' Содержит SPF 20.' : '') },
 hdrBg: (this.state && this.state.scrolled) ? '#F6F4F0' : 'rgba(246, 244, 240, 0.35)', hdrLine: (this.state && this.state.scrolled) ? '#D6D2CB' : 'rgba(214, 210, 203, 0)',
 options: options,
 hasResult: !!r,
@@ -191,5 +328,44 @@ color: r.color
 }
 </script>
 <script src="js/dc-lite.js"></script>
+<div id="ck" role="dialog" aria-live="polite" aria-label="Cookie" hidden style="position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:560px;margin:0 auto;background:#F6F4F0;border:1px solid #1B1A19;padding:20px 24px;display:none;flex-direction:column;gap:16px;font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:14px;line-height:1.6;color:#1B1A19">
+<p style="margin:0">Мы&nbsp;используем cookie и&nbsp;Яндекс Метрику с&nbsp;Вебвизором, чтобы понимать, как&nbsp;работает сайт. Подробнее&nbsp;— в&nbsp;<a href="privacy.html" style="color:#1B1A19;text-underline-offset:3px">политике конфиденциальности</a>.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<button type="button" id="ck-yes" class="btn" style="min-height:44px;padding:0 24px;background:#1B1A19;color:#fff;border:0;font:inherit;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer">Принять</button>
+<button type="button" id="ck-no" class="btn-o" style="min-height:44px;padding:0 24px;background:transparent;color:#1B1A19;border:1px solid #1B1A19;font:inherit;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer">Только необходимые</button>
+</div>
+</div>
+<script>
+(function(){
+  var KEY='rdm-consent', ID=104468544;
+  function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+  function metrika(){
+    if(window.ym)return;
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    ym(ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+  }
+  var box=document.getElementById('ck');
+  function show(){box.hidden=false;box.style.display='flex'}
+  function hide(){box.hidden=true;box.style.display='none'}
+  document.getElementById('ck-yes').onclick=function(){set('yes');hide();metrika()};
+  document.getElementById('ck-no').onclick=function(){
+    var was=get()==='yes'; set('no'); hide();
+    if(was){ // отзыв согласия: удалить cookie Метрики и перезагрузить без неё
+      document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();if(/^_ym|^yandexuid|^yabs/.test(n)){document.cookie=n+'=;Max-Age=0;path=/';document.cookie=n+'=;Max-Age=0;path=/;domain=.'+location.hostname.replace(/^www\./,'')}});
+      location.reload();
+    }
+  };
+  var v=get(); if(v==='yes'){hide();metrika()} else if(v!=='no')show(); else hide();
+  // ссылка «Настройки cookie» в подвале
+  document.querySelectorAll('a[href="privacy.html"]').forEach(function(a){
+    if(!a.closest('footer'))return;
+    var s=document.createElement('a');s.href='#';s.textContent='Настройки cookie';s.style.color='#4A4846';
+    s.onclick=function(e){e.preventDefault();show()};
+    a.parentNode.appendChild(s);
+  });
+})();
+</script>
+
 </body>
 </html>
