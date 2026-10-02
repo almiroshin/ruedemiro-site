@@ -1,5 +1,5 @@
 # Деплой сайта на хостинг RU-CENTER (nic.ru) при каждом push в main.
-# Бэкап на сервере → rsync файлов → проверка md5 прямо с IP хостинга.
+# Оптимизация картинок → бэкап на сервере → rsync файлов → проверка md5 прямо с IP хостинга.
 # Секреты и порядок обновления описаны в README.md.
 name: Deploy to nic.ru
 
@@ -21,6 +21,16 @@ jobs:
       HOSTING_IP: 91.189.114.4
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Собираем копию сайта в dist: картинки получают облегчённые WebP-версии,
+      # пути к ним в HTML/JS подменяются (scripts/optimize-images.py). Исходники в репозитории не меняются.
+      - name: Optimize images
+        run: |
+          rsync -a --exclude '.git/' --exclude '.github/' --exclude 'scripts/' --exclude '.gitignore' \
+            --exclude '.nojekyll' --exclude 'README.md' ./ dist/
+          python3 -m venv /tmp/venv
+          /tmp/venv/bin/pip install -q pillow==11.3.0
+          /tmp/venv/bin/python scripts/optimize-images.py dist
 
       - name: Set up SSH
         env:
@@ -61,16 +71,14 @@ jobs:
           echo "backup: $b"
           SH
 
-      # Служебные файлы репозитория на хостинг не нужны.
       # .htaccess и .well-known (проверка Let's Encrypt) на сервере ведутся вручную — не трогаем их
       - name: Upload
         env:
           REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
         run: |
           rsync -rlvz --checksum --delete --chmod=D755,F644 \
-            --exclude '.git/' --exclude '.github/' --exclude '.gitignore' \
-            --exclude '.nojekyll' --exclude 'README.md' --exclude '.htaccess' --exclude '.well-known/' \
-            ./ nicru:"${REMOTE_PATH}/"
+            --exclude '.htaccess' --exclude '.well-known/' \
+            dist/ nicru:"${REMOTE_PATH}/"
 
       - name: Check site
         run: |
@@ -80,9 +88,9 @@ jobs:
           if ! curl -sk -m 15 --resolve "${SITE_HOST}:443:${ip}" -o /dev/null "https://${SITE_HOST}/"; then scheme=http; port=80; fi
           echo "checking over $scheme"
           fail=0
-          for f in index.html "Главная.dc.html" Assortment.dc.html Product.dc.html support.js rdm-data.js; do
+          for f in index.html "Главная.dc.html" Assortment.dc.html Product.dc.html support.js rdm-data.js assets/imagery/about-noroot-1.webp; do
             url="${scheme}://${SITE_HOST}/$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1]))' "$f")"
-            expected=$(md5sum < "$f" | cut -d' ' -f1)
+            expected=$(md5sum < "dist/$f" | cut -d' ' -f1)
             code=$(curl -sk --resolve "${SITE_HOST}:${port}:${ip}" -o got -w '%{http_code}' "$url?deploy=${GITHUB_SHA::7}")
             actual=$(md5sum < got | cut -d' ' -f1)
             echo "$code $f"
