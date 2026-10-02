@@ -21,6 +21,7 @@
 | `.nojekyll` | Остался от GitHub Pages (сейчас выключен): без него Pages не публикует папку `_ds/`. На хостинг не заливается |
 | `.github/workflows/deploy.yml` | Автодеплой на хостинг nic.ru |
 | `.github/known_hosts` | Ключ SSH-сервера хостинга (проверяется при деплое) |
+| `CLAUDE.md` | Инструкция для Claude Code: как обновлять и проверять сайт. На хостинг не заливается |
 
 Имена файлов `*.dc.html` и пути внутри них не меняйте: страницы ссылаются друг на друга по этим именам.
 
@@ -46,7 +47,7 @@
 Каждый push в `main` запускает `.github/workflows/deploy.yml`:
 
 1. **Backup** — копирует текущий сайт с сервера в `~/backups/ruedemiro-<дата>-<коммит>` (хранятся 5 последних). Если папки сайта на хостинге нет, падает с понятной ошибкой.
-2. **Upload** — `rsync --delete` заливает репозиторий в папку сайта. Не заливаются и не удаляются на сервере: `.git/`, `.github/`, `.gitignore`, `.nojekyll`, `README.md`, а также `.htaccess` и `.well-known/` — они ведутся на сервере вручную.
+2. **Upload** — `rsync --delete` заливает репозиторий в папку сайта. Не заливаются и не удаляются на сервере: `.git/`, `.github/`, `.gitignore`, `.nojekyll`, `README.md`, `CLAUDE.md`, а также `.htaccess` и `.well-known/` — они ведутся на сервере вручную.
 3. **Check site** — скачивает ключевые страницы и скрипты прямо с IP хостинга (`HOSTING_IP`, через `curl --resolve`) и сверяет md5 с файлами из репозитория. Так проверка работает, даже если DNS домена смотрит в другое место. Если HTTPS недоступен, проверка идёт по http.
 
 Запустить деплой вручную без коммита: Actions → Deploy to nic.ru → Run workflow.
@@ -68,10 +69,10 @@
 
 - **Хостинг:** отдельный аккаунт RU-CENTER (не тот, где surf.consulting). Папка сайта: `~/ruedemiro.com/docs`. Веб-сервер: `91.189.114.4`.
 - **Домен** `ruedemiro.com` зарегистрирован в RU-CENTER, оплачен до 19.12.2026.
-- **DNS:** у аккаунта нет услуги DNS-хостинга RU-CENTER (серверы `ns3/ns4/ns8.nic.ru` без неё отдают заглушку, править записи нельзя). Поэтому DNS ведётся в **Яндекс 360** (admin.yandex.ru → Домены): серверы домена `dns1.yandex.net`, `dns2.yandex.net`.
-- **Почта** salut@ruedemiro.com — Яндекс 360.
+- **DNS:** услуга «DNS-хостинг» RU-CENTER на том же аккаунте. Серверы домена: `ns3-l2.nic.ru`, `ns4-l2.nic.ru`, `ns8-l2.nic.ru`, `ns4-cloud.nic.ru`, `ns8-cloud.nic.ru`. Записи правятся в панели RU-CENTER → DNS-хостинг → Управление DNS-зонами; после правки обязательно нажать **«Выгрузить зону»**. В значениях CNAME/MX ставить точку в конце (`ruedemiro.com.`), иначе панель допишет домен.
+- **Почта** salut@ruedemiro.com — Яндекс 360 (admin.yandex.ru). Зона DNS в Яндекс 360 тоже существует, но не используется.
 
-Нужные записи в зоне:
+Записи в зоне:
 
 | Имя | Тип | Значение |
 |---|---|---|
@@ -81,10 +82,10 @@
 | `mail._domainkey` | TXT | DKIM-ключ из Яндекс 360 |
 | `@` | TXT | `v=spf1 redirect=_spf.yandex.net` |
 
-Проверить, что отвечают серверы Яндекса (а не кэш провайдера):
+Проверить ответ самих серверов nic.ru (домашний роутер или провайдер могут долго помнить старый ответ):
 ```bash
-dig +short ruedemiro.com A @dns1.yandex.net
-dig +short ruedemiro.com MX @dns1.yandex.net
+dig +short ruedemiro.com A @ns3-l2.nic.ru
+dig +short ruedemiro.com MX @ns3-l2.nic.ru
 ```
 
 ## HTTPS (Let's Encrypt)
@@ -95,6 +96,17 @@ dig +short ruedemiro.com MX @dns1.yandex.net
 ~/.acme.sh/acme.sh --issue -d ruedemiro.com -d www.ruedemiro.com -w ~/ruedemiro.com/docs
 ```
 
-Текущий сертификат (RSA 2048) выпущен 02.10.2026 и действует до **31.12.2026**. Копии для панели лежат на сервере в `~/ssl` (`ruedemiro.com.crt`, `ruedemiro.com.pkcs8.key`, `ruedemiro.com.ca.crt`). Сертификат и ключ загружаются вручную в панели хостинга nic.ru (ключ — в формате PKCS#8; при перевыпуске указывать `--keylength 2048`). Сертификат действует 90 дней и сам не продлевается: продлить за 2–3 недели до окончания (`--renew`) и загрузить в панель заново.
+Текущий сертификат (RSA 2048) выпущен 02.10.2026 и действует до **31.12.2026**. Копии для панели лежат на сервере в `~/ssl` (`ruedemiro.com.crt`, `ruedemiro.com.pkcs8.key`, `ruedemiro.com.ca.crt`). Сертификат и ключ загружаются вручную в панели хостинга nic.ru (ключ — в формате PKCS#8). Сертификат действует 90 дней и сам не продлевается: продлить за 2–3 недели до окончания и загрузить в панель заново.
+
+Продление (на сервере, по SSH):
+```bash
+~/.acme.sh/acme.sh --renew -d ruedemiro.com --force
+d=~/.acme.sh/ruedemiro.com
+cp $d/ruedemiro.com.cer ~/ssl/ruedemiro.com.crt
+cp $d/ca.cer ~/ssl/ruedemiro.com.ca.crt
+openssl pkcs8 -topk8 -nocrypt -in $d/ruedemiro.com.key -out ~/ssl/ruedemiro.com.pkcs8.key
+chmod 600 ~/ssl/*
+```
+Затем скачать три файла из `~/ssl` и загрузить в панели: «Сайты» → ruedemiro.com → «SSL-сертификаты». Ключ после загрузки удалить с компьютера.
 
 Редиректы http→https и www→без www делаются в `.htaccess` на сервере. HTTPS на nic.ru завершается на прокси, поэтому в условиях надо проверять `%{HTTP:X-Forwarded-Proto}`, а не `%{HTTPS}` (иначе бесконечный редирект).

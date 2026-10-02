@@ -69,7 +69,7 @@ jobs:
         run: |
           rsync -rlvz --checksum --delete --chmod=D755,F644 \
             --exclude '.git/' --exclude '.github/' --exclude '.gitignore' \
-            --exclude '.nojekyll' --exclude 'README.md' --exclude '.htaccess' --exclude '.well-known/' \
+            --exclude '.nojekyll' --exclude 'README.md' --exclude 'CLAUDE.md' --exclude '.htaccess' --exclude '.well-known/' \
             ./ nicru:"${REMOTE_PATH}/"
 
       - name: Check site
